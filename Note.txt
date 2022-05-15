@@ -1,0 +1,26 @@
+ApiService.php
+ApiFacade.php
+
+- Letakan file ApiService.php di app/Services
+- Pada config/app.php bagian alias daftarin ini :
+'aliases' => [
+
+        ...
+
+        'Api' => App\Services\ApiFacade::class,
+
+    ],
+
+- Cara pakai :
+a. Method GET :
+\Api::query([
+            'url' => env('BASE_URL_MB_API').'SalesOrderHeader'.$params,
+            'method' => 'GET'
+        ]);
+
+b. Method POST :
+\Api::query([
+                'url' => env('BASE_URL_MB_API').'MitraBisnis',
+                'method' => 'POST',
+                'body' => $input
+            ]);
